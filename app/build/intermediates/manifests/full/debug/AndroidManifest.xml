@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="allpointech.franchisee"
+    android:versionCode="22"
+    android:versionName="1.2.2" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="23" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- SJH : wake lock 추가 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <!-- map permission -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
+    <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> -->
+
+
+    <!-- NFC permission -->
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.NFC" />
+
+    <meta-data
+        android:name="android.support.VERSION"
+        android:value="25.3.1" /> <!-- Permissions required for GCM -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <application
+        android:name="allpointech.franchisee.AppInfo"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar" >
+        <activity
+            android:name="allpointech.franchisee.intro.IntroActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="allpointech.franchisee.login.LoginActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- User -->
+        <activity
+            android:name="allpointech.franchisee.user.UserMainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" >
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="device_serial/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="allpointech.franchisee.user.mypoint.Franchisee.CheckFranchiseeActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="allpointech.franchisee.user.mypoint.processPoint.InsertPointActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name="allpointech.franchisee.user.mypoint.processPoint.CancelPointActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="allpointech.franchisee.user.setup.DeviceSetupResultActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="allpointech.franchisee.user.mypoint.CheckMyPointDetail.CheckMyPointDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="allpointech.franchisee.login.ShowAgreeActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" />
+        <activity
+            android:name="allpointech.franchisee.user.info.UserInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="allpointech.franchisee.user.notice.UserNoticeDetailActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name="allpointech.franchisee.setting.SettingActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <!-- SJH -->
+
+
+        <!-- Franchisee -->
+        <activity
+            android:name="allpointech.franchisee.franchisee.FranchiseeMainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan" >
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="device_serial/*" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="allpointech.franchisee.franchisee.info.FranchiseeInfoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="allpointech.franchisee.franchisee.info.FranchiseeInfo1Activity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="allpointech.franchisee.franchisee.setup.FranchiseeSetupActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="allpointech.franchisee.franchisee.info.FranchiseeInfo2Activity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="allpointech.franchisee.franchisee.info.FranchiseeInfo3Activity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="allpointech.franchisee.franchisee.users.FranchiseeUsersActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="allpointech.franchisee.franchisee.history.FranchiseeHistoryActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="allpointech.franchisee.franchisee.device.FranchiseeDeviceSetupActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name="allpointech.franchisee.franchisee.device.FranchiseeFirmwareUpdateActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- permission check -->
+        <activity
+            android:name="allpointech.franchisee.utils.TNPermissionCheck"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <!-- GCM -->
+        <service android:name="allpointech.franchisee.network.gcm.GcmIntentService" />
+
+        <receiver
+            android:name="allpointech.franchisee.network.gcm.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND" >
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="allpointech.touchall_franchisee" />
+            </intent-filter>
+        </receiver>
+        <!-- GCM -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <!-- fabric -->
+        <!-- <meta-data -->
+        <!-- android:name="io.fabric.ApiKey" -->
+        <!-- android:value="35dd02ac150d2b543f6b56164cb526fa92b152fc" /> -->
+        <!-- daum map -->
+        <!-- <meta-data -->
+        <!-- android:name="com.kakao.sdk.AppKey" -->
+        <!-- android:value="6f504f9b73ad280372b2aff0036b6f32"/> -->
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+    </application>
+
+</manifest>
